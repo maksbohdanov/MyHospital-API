@@ -5,7 +5,9 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{46D88CE0-23C9-4294-B5E3-25D7EF0F710B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{6BE6F962-96EF-4CF3-90FB-5ACEEBF41115}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{6BE6F962-96EF-4CF3-90FB-5ACEEBF41115}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{C07BD4A8-85DC-4307-A907-23B42E18DB13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6BE6F962-96EF-4CF3-90FB-5ACEEBF41115}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BE6F962-96EF-4CF3-90FB-5ACEEBF41115}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BE6F962-96EF-4CF3-90FB-5ACEEBF41115}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C07BD4A8-85DC-4307-A907-23B42E18DB13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C07BD4A8-85DC-4307-A907-23B42E18DB13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C07BD4A8-85DC-4307-A907-23B42E18DB13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C07BD4A8-85DC-4307-A907-23B42E18DB13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
