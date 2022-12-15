@@ -1,4 +1,7 @@
 using DAL;
+using DAL.Entities;
+using DAL.Interfaces;
+using DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebApi
@@ -11,6 +14,12 @@ namespace WebApi
 
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<HospitalDbContext>(x => x.UseSqlServer(connectionString));
+
+            builder.Services.AddScoped<IRepository<Doctor>, DoctorRepository>();
+            builder.Services.AddScoped<IRepository<Appointment>, AppointmentRepository>();
+            builder.Services.AddScoped<IRepository<Patient>, PatientRepository>();
+            builder.Services.AddScoped<IRepository<Favor>, FavorRepository>();
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             builder.Services.AddControllers();
 
