@@ -2,7 +2,7 @@
 {
     public class Favor: BaseEntity
     {
-        public decimal Prive { get; set; }
+        public decimal Price { get; set; }
 
         public int SpecializationId { get; set; }
         public virtual Specialization Specialization { get; set; }
