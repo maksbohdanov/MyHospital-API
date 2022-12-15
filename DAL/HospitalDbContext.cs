@@ -50,6 +50,10 @@ namespace DAL
                 .HasOne(a => a.Patient)
                 .WithMany(p => p.Appointments)
                 .HasForeignKey(a => a.PatientId);
+
+            modelBuilder.Entity<Patient>()
+                .HasIndex(p => p.Phone)
+                .IsUnique(true);
         }
     }
 }
