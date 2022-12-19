@@ -1,3 +1,7 @@
+using AutoMapper;
+using BLL.Interfaces;
+using BLL.Mapping;
+using BLL.Services;
 using DAL;
 using DAL.Entities;
 using DAL.Interfaces;
@@ -21,6 +25,15 @@ namespace WebApi
             builder.Services.AddScoped<IRepository<Favor>, FavorRepository>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+            var mapperConfig = new MapperConfiguration(mc =>
+                    mc.AddProfile(new AutomapperProfile()));
+            IMapper mapper = mapperConfig.CreateMapper();
+            builder.Services.AddSingleton(mapper);
+
+            builder.Services.AddScoped<IDoctorService, DoctorService>();
+
+
+
             builder.Services.AddControllers();
 
             builder.Services.AddEndpointsApiExplorer();
@@ -37,9 +50,7 @@ namespace WebApi
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
-
-            app.MapControllers();
+            app.MapControllers();            
 
             app.Run();
         }
