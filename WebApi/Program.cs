@@ -31,7 +31,9 @@ namespace WebApi
             builder.Services.AddSingleton(mapper);
 
             builder.Services.AddScoped<IDoctorService, DoctorService>();
-
+            builder.Services.AddScoped<IFavorService, FavorService>();
+            builder.Services.AddScoped<IPatientService, PatientService>();
+            builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 
 
             builder.Services.AddControllers();
