@@ -38,9 +38,9 @@ namespace WebApi
             builder.Services.AddScoped<IPatientService, PatientService>();
             builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 
-            //builder.Services.AddFluentValidationAutoValidation();
-            //builder.Services.AddFluentValidationClientsideAdapters();
-            //builder.Services.AddValidatorsFromAssemblyContaining<NewAppointmentValidator>();
+            builder.Services.AddFluentValidationAutoValidation();
+            builder.Services.AddFluentValidationClientsideAdapters();
+            builder.Services.AddValidatorsFromAssemblyContaining<NewAppointmentValidator>();
 
             builder.Services.AddControllers();
 
