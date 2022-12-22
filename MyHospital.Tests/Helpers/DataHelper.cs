@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MyHospital.Tests.Helpers
 {
-    internal class DataTestsHelper
+    internal class DataHelper
     {
         public static DbContextOptions<HospitalDbContext> GetHospitalDbOptions()
         {
@@ -66,7 +66,7 @@ namespace MyHospital.Tests.Helpers
 
         public static List<Doctor> Doctors = new()
         {
-            new Doctor(){ Id = 1, FirstName = "Анна", LastName = "Мельник", MiddleName = "Олексіївна", SpecializationId = 1, Experience = 3 },
+            new Doctor(){ Id = 1, FirstName = "Анна", LastName = "Мельник", MiddleName = "Олексіївна", SpecializationId = 1, Specialization = Specializations[0], Experience = 3 },
             new Doctor(){ Id = 2, FirstName = "Юрій", LastName = "Дрогобич", MiddleName = "Михайлович", SpecializationId = 2, Experience = 10 },
             new Doctor(){ Id = 3, FirstName = "Микола", LastName = "Амосов", MiddleName = "Михайлович", SpecializationId = 3, Experience = 15 },
             new Doctor(){ Id = 4, FirstName = "Олександр", LastName = "Тур", MiddleName = "Федорович", SpecializationId = 4, Experience = 12 }
@@ -74,7 +74,7 @@ namespace MyHospital.Tests.Helpers
 
         public static List<Favor> Favors = new()
         {
-            new Favor(){ Id = 1, FavorTypeId = 2, FavorNameId = 4, SpecializationId = 1, Price = 500},
+            new Favor(){ Id = 1, FavorTypeId = 2, FavorType = FavorTypes[1], FavorNameId = 4, FavorName = FavorNames[3], SpecializationId = 1, Specialization = Specializations[0], Price = 500},
             new Favor(){ Id = 2, FavorTypeId = 1, FavorNameId = 1, SpecializationId = 2, Price = 400},
             new Favor(){ Id = 3, FavorTypeId = 1, FavorNameId = 1, SpecializationId = 3, Price = 350},
             new Favor(){ Id = 4, FavorTypeId = 1, FavorNameId = 2, SpecializationId = 3, Price = 300},
