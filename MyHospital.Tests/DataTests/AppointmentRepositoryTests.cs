@@ -12,12 +12,12 @@ namespace MyHospital.Tests.DataTests
         [TestCase(2)]
         public async Task AppointmentRepository_GetByIdAsync_ReturnsCorrectValue(int id)
         {
-            using var context = new HospitalDbContext(DataTestsHelper.GetHospitalDbOptions());
+            using var context = new HospitalDbContext(DataHelper.GetHospitalDbOptions());
 
             var appointmentRepository = new AppointmentRepository(context);
             var appointment = await appointmentRepository.GetByIdAsync(id);
 
-            var expected = DataTestsHelper.Appointments
+            var expected = DataHelper.Appointments
                 .FirstOrDefault(x => x.Id == id);
 
             Assert.That(appointment, Is.EqualTo(expected).Using(new AppointmentEqualityComparer()), message: "GetByIdAsync method works incorrect");
@@ -26,23 +26,23 @@ namespace MyHospital.Tests.DataTests
         [Test]
         public async Task AppointmentRepository_GetAllAsync_ReturnsAllValues()
         {
-            using var context = new HospitalDbContext(DataTestsHelper.GetHospitalDbOptions());
+            using var context = new HospitalDbContext(DataHelper.GetHospitalDbOptions());
 
             var appointmentRepository = new AppointmentRepository(context);
             var appointments = await appointmentRepository.GetAllAsync();
 
-            Assert.That(appointments.OrderBy(x => x.Id), Is.EqualTo(DataTestsHelper.Appointments).Using(new AppointmentEqualityComparer()), message: "GetAllAsync method works incorrect");
+            Assert.That(appointments.OrderBy(x => x.Id), Is.EqualTo(DataHelper.Appointments).Using(new AppointmentEqualityComparer()), message: "GetAllAsync method works incorrect");
         }
 
         [Test]
         public async Task AppointmentRepository_FindAsync_ReturnsCorrectValues()
         {
-            using var context = new HospitalDbContext(DataTestsHelper.GetHospitalDbOptions());
+            using var context = new HospitalDbContext(DataHelper.GetHospitalDbOptions());
 
             var appointmentRepository = new AppointmentRepository(context);
             var appointment = await appointmentRepository.FindAsync(x => x.DoctorId == 1);
 
-            var expected = DataTestsHelper.Appointments[0];
+            var expected = DataHelper.Appointments[0];
 
             Assert.That(appointment.FirstOrDefault(), Is.EqualTo(expected).Using(new AppointmentEqualityComparer()), message: "GetAllAsync method works incorrect");
         }
@@ -50,7 +50,7 @@ namespace MyHospital.Tests.DataTests
         [Test]
         public async Task AppointmentRepository_AddAsync_AddsValueToDatabase()
         {
-            using var context = new HospitalDbContext(DataTestsHelper.GetHospitalDbOptions());
+            using var context = new HospitalDbContext(DataHelper.GetHospitalDbOptions());
 
             var appointmentRepository = new AppointmentRepository(context);
             var appointment = new Appointment()
@@ -71,7 +71,7 @@ namespace MyHospital.Tests.DataTests
         [Test]
         public async Task AppointmentRepository_Update_UpdatesEntity()
         {
-            using var context = new HospitalDbContext(DataTestsHelper.GetHospitalDbOptions());
+            using var context = new HospitalDbContext(DataHelper.GetHospitalDbOptions());
 
             var appointmentRepository = new AppointmentRepository(context);
             var appointment = new Appointment()
@@ -102,7 +102,7 @@ namespace MyHospital.Tests.DataTests
         [Test]
         public async Task AppointmentRepository_DeleteByIdAsync_DeletesEntity()
         {
-            using var context = new HospitalDbContext(DataTestsHelper.GetHospitalDbOptions());
+            using var context = new HospitalDbContext(DataHelper.GetHospitalDbOptions());
 
             var appointmentRepository = new AppointmentRepository(context);
 

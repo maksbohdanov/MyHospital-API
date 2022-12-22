@@ -12,12 +12,12 @@ namespace MyHospital.Tests.DataTests
         [TestCase(2)]
         public async Task FavorRepository_GetByIdAsync_ReturnsCorrectValue(int id)
         {
-            using var context = new HospitalDbContext(DataTestsHelper.GetHospitalDbOptions());
+            using var context = new HospitalDbContext(DataHelper.GetHospitalDbOptions());
 
             var favorRepository = new FavorRepository(context);
             var favor = await favorRepository.GetByIdAsync(id);
 
-            var expected = DataTestsHelper.Favors
+            var expected = DataHelper.Favors
                 .FirstOrDefault(x => x.Id == id);
 
             Assert.That(favor, Is.EqualTo(expected).Using(new FavorEqualityComparer()), message: "GetByIdAsync method works incorrect");
@@ -26,23 +26,23 @@ namespace MyHospital.Tests.DataTests
         [Test]
         public async Task FavorRepository_GetAllAsync_ReturnsAllValues()
         {
-            using var context = new HospitalDbContext(DataTestsHelper.GetHospitalDbOptions());
+            using var context = new HospitalDbContext(DataHelper.GetHospitalDbOptions());
 
             var favorRepository = new FavorRepository(context);
             var favors = await favorRepository.GetAllAsync();
 
-            Assert.That(favors.OrderBy(x => x.Id), Is.EqualTo(DataTestsHelper.Favors).Using(new FavorEqualityComparer()), message: "GetAllAsync method works incorrect");
+            Assert.That(favors.OrderBy(x => x.Id), Is.EqualTo(DataHelper.Favors).Using(new FavorEqualityComparer()), message: "GetAllAsync method works incorrect");
         }
 
         [Test]
         public async Task FavorRepository_FindAsync_ReturnsCorrectValues()
         {
-            using var context = new HospitalDbContext(DataTestsHelper.GetHospitalDbOptions());
+            using var context = new HospitalDbContext(DataHelper.GetHospitalDbOptions());
 
             var favorRepository = new FavorRepository(context);
             var favor = await favorRepository.FindAsync(x => x.Price < 350);
 
-            var expected = DataTestsHelper.Favors[3];
+            var expected = DataHelper.Favors[3];
 
             Assert.That(favor.FirstOrDefault(), Is.EqualTo(expected).Using(new FavorEqualityComparer()), message: "GetAllAsync method works incorrect");
         }
@@ -50,7 +50,7 @@ namespace MyHospital.Tests.DataTests
         [Test]
         public async Task FavorRepository_AddAsync_AddsValueToDatabase()
         {
-            using var context = new HospitalDbContext(DataTestsHelper.GetHospitalDbOptions());
+            using var context = new HospitalDbContext(DataHelper.GetHospitalDbOptions());
 
             var favorRepository = new FavorRepository(context);
             var favor = new Favor() 
@@ -71,7 +71,7 @@ namespace MyHospital.Tests.DataTests
         [Test]
         public async Task FavorRepository_Update_UpdatesEntity()
         {
-            using var context = new HospitalDbContext(DataTestsHelper.GetHospitalDbOptions());
+            using var context = new HospitalDbContext(DataHelper.GetHospitalDbOptions());
 
             var favorRepository = new FavorRepository(context);
             var favor = new Favor()
@@ -102,7 +102,7 @@ namespace MyHospital.Tests.DataTests
         [Test]
         public async Task FavorRepository_DeleteByIdAsync_DeletesEntity()
         {
-            using var context = new HospitalDbContext(DataTestsHelper.GetHospitalDbOptions());
+            using var context = new HospitalDbContext(DataHelper.GetHospitalDbOptions());
 
             var favorRepository = new FavorRepository(context);
 
