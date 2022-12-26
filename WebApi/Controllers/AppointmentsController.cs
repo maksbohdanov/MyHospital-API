@@ -15,7 +15,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SendMessage([FromBody] NewAppointmentModel model)
+        public async Task<IActionResult> MakeAppointment([FromBody] NewAppointmentModel model)
         {
             await _appointmentService.MakeAppointmentAsync(model);
 
