@@ -59,6 +59,13 @@ namespace WebApi
 
             app.UseHttpsRedirection();
 
+            app.UseCors(builder =>
+                builder
+                    .WithOrigins("http://localhost:4200/")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin());
+
             app.UseAuthorization();
             app.MapControllers();            
 
