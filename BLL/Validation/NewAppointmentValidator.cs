@@ -24,7 +24,7 @@ namespace BLL.Validation
 
             RuleFor(x => x.Date)
                 .NotEmpty().WithMessage("Date cannot be empty.")
-                .LessThan(p => DateTime.Now).WithMessage("Invalid Date. It cannot be greater then now.");
+                .GreaterThan(p => DateTime.Now).WithMessage("Invalid Date. It cannot be less then now.");
         }
     }
 }

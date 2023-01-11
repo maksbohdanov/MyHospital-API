@@ -29,7 +29,7 @@ namespace MyHospital.Tests.IntegrationTests
         {
             var model = new NewAppointmentModel()
             {
-                Date = DateTime.Today,
+                Date = DateTime.Today.AddDays(1),
                 PatientName = "Петренко Петро",
                 PatientPhone = "380961234567",
                 DoctorId = 1,

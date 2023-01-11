@@ -18,7 +18,7 @@ namespace BLL.Services
 
         public async Task MakeAppointmentAsync(NewAppointmentModel model)
         {
-            if (model.FavorId > 4)
+            if (model.FavorId < 5)
                 model.DoctorId = 1;
 
             var patient = await _patientService.GetByPhoneNumberAsync(model.PatientName, model.PatientPhone);
